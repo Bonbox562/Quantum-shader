@@ -113,7 +113,7 @@ const float wetnessHalflife         = 70.0;
 //#define PIXELATED_SHADOWS
   #define PIXELATED_SHADOWS_RESOLUTION 16 // [4 8 16 32 64 128 256]
 
-  #define SHADOW_DEPTH_SCALE 0.25
+  #define SHADOW_DEPTH_SCALE 0.15
   #define SHADOW_DISTORTION 0.95 
   
 // Colored Lights Settings
