@@ -1,8 +1,10 @@
 # BoXshader-((PhotonEdit))-
 
 # Shader screenshot
-![2024-05-14_16 53 18](https://github.com/Bonbox562/BoXshader-PhotonEdit-/assets/169409426/13b7b5ba-ebf9-43f4-a289-dc1445b32179)![2024-05-14_16 54 03](https://github.com/Bonbox562/BoXshader-PhotonEdit-/assets/169409426/32762354-8f20-4a30-96fa-0cca879e3c69)
-![2024-05-14_16 56 11](https://github.com/Bonbox562/BoXshader-PhotonEdit-/assets/169409426/8ac851dc-d283-42ac-a8c8-11ee3ed61e45)![2024-05-14_17 04 04](https://github.com/Bonbox562/BoXshader-PhotonEdit-/assets/169409426/e0d79c40-cc7a-4c03-b879-e29bae9f43b0)
+![2024-05-14_17 04 04](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/abdf4f0b-0c94-4e60-9378-8eb3e06833b1)
+![2024-05-14_16 56 09](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/8b27b346-9e13-42c0-960e-5b5fa7b45fe1)
+![2024-05-14_16 54 05](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/be95c28d-0d2c-485b-af91-e560291ba472)
+![2024-05-14_16 53 18](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/57c4dcb1-3660-4c62-910c-2067b824530e)
 
 
 # This is a shader for Minecraft JavaEdition.  
@@ -24,10 +26,11 @@ Below are the changes from the default Photon.
 12 Improved motion blur quality.  
 
 Below are features and adjustments we would like to add in the future.  
-  
+
 1 Shader settings for various languages.    
 2 Changes the shape of all clouds.  
 3 Color light quality improvements (no improvements planned for a while due to my lack of skill).    
 4 Shooting star (No plan to add for a while due to my lack of skill.)     
 5 The night sky as in the following image (Running the code I wrote to draw the sky as shown in the image causes bugs, so as soon as I find a better way, I will adjust.)
-![2024-05-14_14 43 52](https://github.com/Bonbox562/BoXshader-PhotonEdit-/assets/169409426/25088bad-497e-4b06-81f5-402fbcad3640)
+![2024-05-14_14 43 52](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/acf88fa8-d0b1-403e-8ce8-fc1c0a1b57e0)
+
