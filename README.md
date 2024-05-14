@@ -24,6 +24,7 @@ Below are the changes from the default Photon.
 12 Improved motion blur quality.  
 
 Below are features and adjustments we would like to add in the future.  
+  
 1 Shader settings for various languages.    
 2 Changes the shape of all clouds.  
 3 Color light quality improvements (no improvements planned for a while due to my lack of skill).    
