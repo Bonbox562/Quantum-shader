@@ -8,7 +8,7 @@
 
 
 # This is a shader for Minecraft JavaEdition.  
-# I edited PhotonShader by Sixthsurge.
+# I edited [PhotonShader by Sixthsurge](https://github.com/sixthsurge/photon).
 
 Below are the changes from the default Photon.
 
