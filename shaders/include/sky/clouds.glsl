@@ -400,7 +400,7 @@ float clouds_cumulus_congestus_altitude_shaping(float density, float altitude_fr
 
 	// Reduce density at the top and bottom of the cloud
 	density *= smoothstep(0.0, 0.1, altitude_fraction);
-	density *= smoothstep(0.0, 0.1, 1.0 - altitude_fraction);
+	density *= smoothstep(0.0, 0.1, 0.5 - altitude_fraction);
 
 	return density;
 }
@@ -440,7 +440,7 @@ float clouds_cumulus_congestus_density(vec3 pos) {
 #endif
 
 	float detail_fade = 0.20 * smoothstep(0.85, 1.0, 1.0 - altitude_fraction)
-	                  - 0.35 * smoothstep(0.05, 0.5, altitude_fraction) + .6;
+	                  - 0.35 * smoothstep(0.05, 0.5, altitude_fraction) + 0.8;
 
 	density -= (0.25 * CLOUDS_CUMULUS_CONGESTUS_DETAIL_STRENGTH) * sqr(worley_0) * dampen(clamp01(1.0 - density));
 	density -= (0.10 * CLOUDS_CUMULUS_CONGESTUS_DETAIL_STRENGTH) * sqr(worley_1) * dampen(clamp01(1.0 - density)) * detail_fade;
@@ -529,7 +529,7 @@ const uint  primary_steps     = CLOUDS_CUMULUS_CONGESTUS_PRIMARY_STEPS;
 const uint  lighting_steps    = CLOUDS_CUMULUS_CONGESTUS_LIGHTING_STEPS;
 const uint  ambient_steps     = CLOUDS_CUMULUS_CONGESTUS_AMBIENT_STEPS;
 
-const float min_transmittance = 0.075;
+const float min_transmittance = 0.095;
 
 const float planet_albedo     = 2.0;
 const vec3  sky_dir           = vec3(0.0, 1.0, 0.0);
@@ -567,7 +567,7 @@ float cos_theta = dot(ray_dir, light_dir);
 float bounced_light = planet_albedo * light_dir.y * rcp_pi;
 
 // 夜間の透明度を下げるための変数を追加
-const float night_transmittance_factor = 0.5; // 夜間の透明度を下げる係数
+const float night_transmittance_factor = 0.4; // 夜間の透明度を下げる係数
 
 // 夜間かどうかを判断し、透明度を調整
 if (moonlit) {
