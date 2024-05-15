@@ -1,42 +1,36 @@
-# Quantum shader-(PhotonEdit)-
+# Quantum Shader (PhotonEdit)
 
-# Shader screenshot
-![2024-05-14_16 53 18](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/57c4dcb1-3660-4c62-910c-2067b824530e)
-![2024-05-14_16 54 05](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/be95c28d-0d2c-485b-af91-e560291ba472)
-![2024-05-14_16 56 09](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/8b27b346-9e13-42c0-960e-5b5fa7b45fe1)
-![2024-05-14_17 04 04](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/abdf4f0b-0c94-4e60-9378-8eb3e06833b1)
+## Shader Screenshots
+![Screenshot 1](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/57c4dcb1-3660-4c62-910c-2067b824530e)
+![Screenshot 2](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/be95c28d-0d2c-485b-af91-e560291ba472)
+![Screenshot 3](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/8b27b346-9e13-42c0-960e-5b5fa7b45fe1)
+![Screenshot 4](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/abdf4f0b-0c94-4e60-9378-8eb3e06833b1)
 
+## About the Shader
+This shader is designed for Minecraft Java Edition and is an edited version of the [PhotonShader by Sixthsurge](https://github.com/sixthsurge/photon).
 
-# This is a shader for Minecraft JavaEdition.  
-# I edited [PhotonShader by Sixthsurge](https://github.com/sixthsurge/photon).
+### Modifications from Default Photon Shader
+1. **Cumulus Congestus Shape**: Modified the shape of cumulus congestus clouds.
+2. **Color Adjustments**: Revised the overall color scheme for better visual appeal.
+3. **Glowing Ores**: Integrated support for glowing ores.
+4. **Particle Glow**: Resolved the issue where particles did not glow.
+5. **Luminous Blocks**: Added luminous blocks to block.properties and provided support for certain mods.
+6. **Star Color**: Fine-tuned the color of stars.
+7. **Puddle Display in Iris 1.7**: Corrected the issue where puddles were not displayed in Iris 1.7.
+8. **Japanese Translation**: Implemented Japanese translation for shader settings.
+9. **Sun and Moon Edges**: Smoothed the edges of the sun and moon for a cleaner look.
+10. **SNELLS_WINDOW Intensity**: Adjusted the intensity parameter of SNELLS_WINDOW.
+11. **Cloud Transparency at Night**: Reduced the transparency of clouds during nighttime.
+12. **Motion Blur**: Enhanced the quality of motion blur.
 
-Below are the changes from the default Photon.
+### Future Enhancements
+1. **Multilingual Shader Settings**: Plan to provide shader settings in various languages.
+2. **Cloud Shape Overhaul**: Aim to change the shape of all cloud types.
+3. **Color Light Quality**: Intend to improve color light quality, though this is delayed due to current skill limitations.
+4. **Shooting Stars**: Plan to add shooting stars, postponed due to technical challenges.
+5. **Night Sky Adjustment**: Aspire to adjust the night sky as depicted below, but currently on hold due to potential bugs.
+![Future Night Sky](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/acf88fa8-d0b1-403e-8ce8-fc1c0a1b57e0)
 
-1 Changed the shape of cumulus_congestus.  
-2 Adjusted overall color.  
-3 Added support for glowing ores.  
-4 Fixed problem with particles not glowing.  
-5 Added luminous blocks to block.properties. Supported some mods.  
-6 Adjusted star color.  
-7 Fixed a problem that puddles are not displayed in Iris 1.7.  
-8 Added Japanese translation of shader settings.  
-9 Smoothed the edges of the sun and moon.  
-10 Adjusted INTENSITY of SNELLS_WINDOW.  
-11 Reduced the transparency of clouds at night.  
-12 Improved motion blur quality.  
+Your expertise and advice on how to implement or refine these features would be greatly appreciated. Any guidance you can provide would be highly beneficial. (^w^)
 
-Below are features and adjustments we would like to add in the future.  
-
-1 Shader settings for various languages.    
-2 Changes the shape of all clouds.  
-3 Color light quality improvements (no improvements planned for a while due to my lack of skill).    
-4 Shooting star (No plan to add for a while due to my lack of skill.)     
-5 The night sky as in the following image (I don't intend to adjust it for a while because it will cause bugs when I run the code I wrote.)
-![2024-05-14_14 43 52](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/acf88fa8-d0b1-403e-8ce8-fc1c0a1b57e0)
-
-If you know how to adjust or add the above, could you please let me know? It would help a lot.(^w^)
-
-
-
-
-(I am Japanese and my knowledge of English is limited, so the above text was written using a translation tool. If it contains inappropriate expressions, I apologize.)
+*(Please note: The above text was translated using a translation tool. Any inappropriate expressions are unintentional and I apologize for any inaccuracies.)*
