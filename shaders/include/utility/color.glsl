@@ -78,7 +78,7 @@ vec3 rgb_to_hsl(vec3 c) {
 	float d = q.x - min(q.w, q.y);
 	float e = 1e-6;
 
-	return vec3(abs(q.z + (q.w - q.y) / (6.2 * d + e)), d / (q.x + e), q.x);
+	return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
 }
 vec3 hsl_to_rgb(vec3 c) {
 	const vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
