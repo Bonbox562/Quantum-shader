@@ -479,6 +479,7 @@ option.WATER_FOAM                      = Water Foam
 option.WATER_FOAM.comment              = White highlights where water meets terrain. Helps to make water more easily visible in some cases
 option.SNELLS_WINDOW                   = Snell's Window
 option.SNELLS_WINDOW.comment           = Total internal reflection underwater
+option.SNELLS_WINDOW_INTENSITY     =Snell's Window Intensity
 option.WATER_TEXTURE                   = Water Texture
 option.WATER_TEXTURE.comment           = How to use the vanilla water texture.\n\nOff - no water texture.\nHighlights: water texture adds highlights to the water, like how it works in Bedrock RTX.\nVanilla: water texture is used like any other texture
 option.BIOME_WATER_COLOR               = Biome-Colored Water
