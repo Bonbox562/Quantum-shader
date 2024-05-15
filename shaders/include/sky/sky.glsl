@@ -18,7 +18,14 @@ vec3 unstable_star_field(vec2 coord, float star_threshold) {
 	      star = pow4(star) * STARS_INTENSITY;
 
 	float temp = mix(min_temp, max_temp, noise.y);
-	vec3 color = vec3(0.4, 0.5, 1.0); // 水色の RGB 値
+	
+	// 星の色を設定します。
+	vec3 color;
+	#if defined WORLD_OVERWORLD
+		color = vec3(0.4, 0.5, 1.0); // 水色の RGB 値
+	#elif defined WORLD_END
+		color = vec3(1.0, 0.5, 0.9); // 赤色の RGB 値
+	#endif
 
 	const float twinkle_speed = 2.0;
 	float twinkle_amount = noise.z;
