@@ -26,7 +26,7 @@ const float min_mu_s = -0.35;
 
 const float planet_radius = 6371e3; // m
 
-const float atmosphere_inner_radius = planet_radius - 1e3; // m
+const float atmosphere_inner_radius = planet_radius - 1e3;//1.5e5; // m
 const float atmosphere_outer_radius = planet_radius + 110e3; // m
 
 const float planet_radius_sq = planet_radius * planet_radius;
@@ -43,9 +43,9 @@ const float air_mie_g                = 0.77;    // Anisotropy parameter for Heny
 const vec2 air_scale_heights = vec2(8.4e3, 1.25e3); // m
 
 // Coefficients for Rec. 709 primaries transformed to Rec. 2020
-const vec3 air_rayleigh_coefficient = vec3(8.059375432e-06, 1.671209429e-05, 4.080133294e-05) * rec709_to_rec2020;
-const vec3 air_mie_coefficient      = vec3(1.666442358e-06, 1.812685127e-06, 1.958927896e-06) * rec709_to_rec2020;
-const vec3 air_ozone_coefficient    = vec3(8.304280072e-07, 1.314911970e-06, 5.440679729e-08) * rec709_to_rec2020;
+const vec3 air_rayleigh_coefficient = /*2.5 */ vec3(8.059375432e-06, 1.671209429e-05, 4.080133294e-05) * rec709_to_rec2020;
+const vec3 air_mie_coefficient      = /*1.0 */ vec3(1.666442358e-06, 1.812685127e-06, 1.958927896e-06) * rec709_to_rec2020;
+const vec3 air_ozone_coefficient    = /*2e3 */ vec3(8.304280072e-07, 1.314911970e-06, 5.440679729e-08) * rec709_to_rec2020;
 
 const mat2x3 air_scattering_coefficients = mat2x3(air_rayleigh_coefficient, air_mie_albedo * air_mie_coefficient);
 const mat3x3 air_extinction_coefficients = mat3x3(air_rayleigh_coefficient, air_mie_coefficient, air_ozone_coefficient);
@@ -353,6 +353,12 @@ vec3 atmosphere_transmittance(float mu, float r) {
 
 	// Approximate ozone density as rayleigh density
 	return clamp01(exp(-air_extinction_coefficients * airmass.xyx));
+//	vec3 density = atmosphere_density(r);
+//	vec3 airmass = air_scale_heights.xyx * density;
+//	airmass.x *= chapman_function_approx(r * rcp_scale_heights.x, mu);
+//	airmass.y *= chapman_function_approx(r * rcp_scale_heights.y, mu);
+//	airmass.z *= chapman_function_approx(r * rcp_scale_heights.x, mu);
+//	return clamp01(exp(-air_extinction_coefficients * airmass));
 }
 #endif
 
@@ -366,3 +372,4 @@ vec3 atmosphere_transmittance(vec3 ray_origin, vec3 ray_dir) {
 }
 
 #endif // INCLUDE_SKY_ATMOSPHERE
+
