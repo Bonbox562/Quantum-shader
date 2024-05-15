@@ -20,7 +20,7 @@ This shader is designed for Minecraft Java Edition and is an edited version of t
 8. **Sun and Moon Edges**: Smoothed the edges of the sun and moon for a cleaner look.
 9. **SNELLS_WINDOW Intensity**: Adjusted the intensity parameter of SNELLS_WINDOW.
 10. **Cloud Transparency at Night**: Reduced the transparency of clouds during nighttime.
-11. **Motion Blur**: Enhanced the quality of motion blur.
+11. **Motion Blur**: Motion blur overhaul.
 
 ### Future Enhancements
 1. **Multilingual Shader Settings**: Plan to provide shader settings in various languages.
