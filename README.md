@@ -1,4 +1,4 @@
-# BoXshader-(PhotonEdit)-
+# Quantum shader-(PhotonEdit)-
 
 # Shader screenshot
 ![2024-05-14_16 53 18](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/57c4dcb1-3660-4c62-910c-2067b824530e)
