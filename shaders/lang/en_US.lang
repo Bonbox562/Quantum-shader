@@ -147,6 +147,8 @@ option.BLOCK_ENTITY_SHADOWS            = Block Entity Shadows
 option.PIXELATED_SHADOWS               = Pixelated Shadows
 option.PIXELATED_SHADOWS.comment       = Shadows snap to block texels, creating a pixelated look
 option.PIXELATED_SHADOWS_RESOLUTION    = Pixelated Shadows Resolution
+option.SHADOW_DEPTH_SCALE                      = Shadow Depth Scale
+option.SHADOW_DISTORTION              = Shadow Distortion
 
 option.SUN_NR                          = Red
 option.SUN_NG                          = Green
