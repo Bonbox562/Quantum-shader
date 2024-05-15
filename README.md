@@ -16,12 +16,11 @@ This shader is designed for Minecraft Java Edition and is an edited version of t
 4. **Particle Glow**: Resolved the issue where particles did not glow.
 5. **Luminous Blocks**: Added luminous blocks to block.properties and provided support for certain mods.
 6. **Star Color**: Fine-tuned the color of stars.
-7. **Puddle Display in Iris 1.7**: Corrected the issue where puddles were not displayed in Iris 1.7.
-8. **Japanese Translation**: Implemented Japanese translation for shader settings.
-9. **Sun and Moon Edges**: Smoothed the edges of the sun and moon for a cleaner look.
-10. **SNELLS_WINDOW Intensity**: Adjusted the intensity parameter of SNELLS_WINDOW.
-11. **Cloud Transparency at Night**: Reduced the transparency of clouds during nighttime.
-12. **Motion Blur**: Enhanced the quality of motion blur.
+7. **Puddle Display in Iris 1.7**: Corrected the issue where puddles were not displayed in Iris 1.7.  
+8. **Sun and Moon Edges**: Smoothed the edges of the sun and moon for a cleaner look.
+9. **SNELLS_WINDOW Intensity**: Adjusted the intensity parameter of SNELLS_WINDOW.
+10. **Cloud Transparency at Night**: Reduced the transparency of clouds during nighttime.
+11. **Motion Blur**: Enhanced the quality of motion blur.
 
 ### Future Enhancements
 1. **Multilingual Shader Settings**: Plan to provide shader settings in various languages.
