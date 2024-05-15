@@ -31,6 +31,12 @@ Below are features and adjustments we would like to add in the future.
 2 Changes the shape of all clouds.  
 3 Color light quality improvements (no improvements planned for a while due to my lack of skill).    
 4 Shooting star (No plan to add for a while due to my lack of skill.)     
-5 The night sky as in the following image (Running the code I wrote to draw the sky as shown in the image causes bugs, so as soon as I find a better way, I will adjust.)
+5 The night sky as in the following image (I don't intend to adjust it for a while because it will cause bugs when I run the code I wrote.)
 ![2024-05-14_14 43 52](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/acf88fa8-d0b1-403e-8ce8-fc1c0a1b57e0)
 
+If you know how to adjust or add the above, could you please let me know? It would help a lot.(^w^)
+
+
+
+
+(I am Japanese and my knowledge of English is limited, so the above text was written using a translation tool. If it contains inappropriate expressions, I apologize.)
