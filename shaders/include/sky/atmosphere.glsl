@@ -20,7 +20,7 @@ const float moon_angular_radius = MOON_ANGULAR_RADIUS * degree;
 const ivec2 transmittance_res = ivec2(/* mu */ 256, /* r */ 64);
 const ivec3 scattering_res    = ivec3(/* nu */ 16, /* mu */ 64, /* mu_s */ 32);
 
-const float min_mu_s = -0.35;
+const float min_mu_s = -0.40;
 
 // Atmosphere boundaries
 
@@ -288,6 +288,9 @@ vec3 atmosphere_scattering(vec3 ray_dir, vec3 sun_color, vec3 sun_dir, vec3 moon
 
 	float mie_phase_sun  = henyey_greenstein_phase(nu_sun,  air_mie_g);
 	float mie_phase_moon = henyey_greenstein_phase(nu_moon, air_mie_g);
+
+	// Reduce the brightness of the moon by half
+	moon_color *= 1.35;
 
 	return (scattering_sc + scattering_sm * mie_phase_sun)  * sun_color
 	     + (scattering_mc + scattering_mm * mie_phase_moon) * moon_color;
