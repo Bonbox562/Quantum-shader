@@ -125,7 +125,7 @@ const float wetnessHalflife         = 70.0;
 //   Sky
 // -------
 
-  #define SKY_GROUND
+//#define SKY_GROUND
 
 // Aurora
 
