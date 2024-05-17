@@ -26,7 +26,7 @@ This shader is designed for Minecraft Java Edition and is an edited version of t
 1. **Multilingual Shader Settings**: Plan to provide shader settings in various languages.
 2. **Cloud Shape Overhaul**: Aim to change the shape of all cloud types.
 3. **Color Light Quality**: Intend to improve color light quality, though this is delayed due to current skill limitations.
-4. **Shooting Stars**: Plan to add shooting stars, postponed due to technical challenges.
+4. **Shooting Stars and nebula**: Plan to add shooting stars, postponed due to technical challenges.
 5. **Night Sky Adjustment**: Aspire to adjust the night sky as depicted below, but currently on hold due to potential bugs.
 ![Future Night Sky](https://github.com/Bonbox562/BoXshader-Photon-Edit-/assets/169409426/acf88fa8-d0b1-403e-8ce8-fc1c0a1b57e0)
 
