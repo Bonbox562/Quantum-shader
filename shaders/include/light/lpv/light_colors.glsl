@@ -28,7 +28,7 @@ const vec3[32] light_color = vec3[32](
 	vec3(0.75, 0.44, 1.00) *  6.0, // Amethyst cluster
 	vec3(0.75, 0.44, 1.00) *  6.0, // Calibrated sculk sensor
 	vec3(0.75, 1.00, 0.83) *  6.0, // Active sculk sensor
-	vec3(1.00, 0.18, 0.10) *  2.0, // Redstone block
+	vec3(1.00, 0.18, 0.10) *  8.0, // Redstone block
 	vec3(0.0), // Unused
 	vec3(0.0), // Unused
 	vec3(0.0), // Unused
