@@ -17,8 +17,8 @@ const vec3[32] light_color = vec3[32](
 	vec3(0.45, 0.73, 1.00) *  9.0, // Beacon
 	vec3(0.75, 1.00, 0.83) *  3.0, // Sculk
 	vec3(0.75, 1.00, 0.83) *  6.0, // End portal frame
-	vec3(0.60, 0.10, 1.00) *  4.5, // Pink glow
-	vec3(0.75, 1.00, 0.50) *  3.0, // Sea pickle
+	vec3(0.60, 0.10, 1.00) *  7.5, // Pink glow
+	vec3(0.75, 1.00, 0.50) *  5.0, // Sea pickle
 	vec3(1.00, 0.50, 0.25) *  6.0, // Nether plants
 	vec3(1.00, 0.57, 0.30) *  6.0, // Medium golden light
 	vec3(1.00, 0.65, 0.30) *  6.0, // Ochre froglight
