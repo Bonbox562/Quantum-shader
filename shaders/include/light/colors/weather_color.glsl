@@ -6,11 +6,11 @@
 uniform float biome_may_sandstorm;
 
 vec3 get_rain_color() {
-	return mix(0.075, 0.66, smoothstep(-0.1, 0.5, sun_dir.y)) * sunlight_color * vec3(0.40, 0.60, 1.00);
+	return mix(0.075, 0.66, smoothstep(-0.1, 0.5, sun_dir.y)) * sunlight_color * vec3(0.35, 0.55, 1.00);
 }
 
 vec3 get_snow_color() {
-	return mix(0.075, 1.60, smoothstep(-0.1, 0.5, sun_dir.y)) * sunlight_color * vec3(0.40, 0.60, 1.00);
+	return mix(0.075, 1.60, smoothstep(-0.1, 0.5, sun_dir.y)) * sunlight_color * vec3(0.35, 0.55, 1.00);
 }
 
 vec3 get_sandstorm_color() {
