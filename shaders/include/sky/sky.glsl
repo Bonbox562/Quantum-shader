@@ -187,8 +187,8 @@ vec3 draw_sky(vec3 ray_dir, vec3 atmosphere) {
 	sky += atmosphere;
 
 	// Rain
-	vec3 rain_sky = get_weather_color() * (1.20 - exp2(-0.8 / clamp01(ray_dir.y)));
-	sky = mix(sky, rain_sky, rainStrength * mix(1.0, 0.9, time_sunrise + time_sunset));
+	vec3 rain_sky = get_weather_color() * (3.00 - exp2(-0.8 / clamp01(ray_dir.y)));
+	sky = mix(sky, rain_sky, rainStrength * mix(1.0, 1.0, time_sunrise + time_sunset));
 
 	// Clouds
 
