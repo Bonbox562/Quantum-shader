@@ -265,6 +265,13 @@ vec3 get_specular_reflections(
 	screen_pos = view_to_screen_space(combined_projection_matrix, view_pos, true);
 #endif
 
+float ssr_limiter;
+	if (material.is_hardcoded_metal || material.is_metal || max_of(material.albedo) < eps) {
+		ssr_limiter = 1;
+	} else {
+		ssr_limiter = material.roughness;
+	}
+
 #if defined SSR_ROUGHNESS_SUPPORT && defined SPECULAR_MAPPING
 	if (!is_water) { // Rough reflection
 	 	float mip_level = 8.0 * dampen(material.roughness);
@@ -276,13 +283,13 @@ vec3 get_specular_reflections(
 			hash.x = interleaved_gradient_noise(gl_FragCoord.xy,                    frameCounter * SSR_RAY_COUNT + i);
 			hash.y = interleaved_gradient_noise(gl_FragCoord.xy + vec2(97.0, 23.0), frameCounter * SSR_RAY_COUNT + i);
 
-			vec3 microfacet_normal = tbn_matrix * sample_ggx_vndf(-tangent_dir, vec2(alpha_squared), hash);
+			vec3 microfacet_normal = tbn_matrix * sample_ggx_vndf(-tangent_dir, vec2(material.roughness), hash);
 			vec3 ray_dir = reflect(world_dir, microfacet_normal);
 
 			float NoL = dot(normal, ray_dir);
 			if (NoL < eps) continue;
 
-			vec3 radiance = trace_specular_ray(screen_pos, view_pos, ray_dir, dither, skylight, SSR_INTERSECTION_STEPS_ROUGH, SSR_REFINEMENT_STEPS, int(mip_level));
+			vec3 radiance = trace_specular_ray(screen_pos, view_pos, ray_dir, dither, skylight * ssr_limiter, SSR_INTERSECTION_STEPS_ROUGH, SSR_REFINEMENT_STEPS, int(mip_level));
 
 			float NoV = max(1e-2, dot(flat_normal, -world_dir));
 			float MoV = max(1e-2, dot(microfacet_normal, -world_dir));
@@ -299,7 +306,7 @@ vec3 get_specular_reflections(
 			float v1 = v1_smith_ggx(NoV, alpha_squared);
 			float v2 = v2_smith_ggx(NoL, NoV, alpha_squared);
 
-			reflection += radiance * fresnel * (2.0 * NoL * v2 / v1);
+			reflection += radiance * pow(fresnel, vec3(0.8)) * (2.0 * NoL * v2 / v1);
 		}
 
 		reflection *= albedo_tint * rcp(float(SSR_RAY_COUNT));
