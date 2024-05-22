@@ -178,7 +178,7 @@ vec3 purkinje_shift(vec3 rgb, vec2 light_levels) {
 
 	if (purkinje_intensity < eps) return rgb;
 
-	const vec3 purkinje_tint = vec3(0.7, 0.8, 1.0) * rec709_to_rec2020;
+	const vec3 purkinje_tint = vec3(0.5, 0.7, 1.0) * rec709_to_rec2020;
 	const vec3 rod_response = vec3(7.15e-5, 4.81e-1, 3.28e-1) * rec709_to_rec2020;
 
 	vec3 xyz = rgb * rec2020_to_xyz;
@@ -352,27 +352,57 @@ void main() {
 
 	float layer_dist = abs(view_dist - length(view_back_pos));
 
+	bool is_tinted_glass = (64u <= material_mask && material_mask < 80u);
+	bool is_nether_portal = material_mask == 62;
+
 	if (is_water) {
+
 #ifdef WATER_REFRACTION
-		vec3 tangent_normal = normal * tbn;
+	vec3 tangent_normal = normal * tbn;
 
-		vec2 refracted_uv = uv + tangent_normal.xy * rcp(max(view_dist, 1.0)) * min(layer_dist, 8.0) * (0.1 * WATER_REFRACTION_INTENSITY);
+	vec2 refracted_uv = uv + tangent_normal.xy * rcp(max(view_dist, 1.0)) * min(layer_dist, 8.0) * (0.1 * WATER_REFRACTION_INTENSITY);
 
-		vec3  refracted_color = texture(colortex0, refracted_uv * taau_render_scale).rgb;
+	vec3  refracted_color = texture(colortex0, refracted_uv * taau_render_scale).rgb;
 
-		// Make sure the refracted object is behind water
-		float refracted_data  = texelFetch(colortex1, ivec2(refracted_uv * taau_render_scale * view_res), 0).y;
-		uint  refracted_mask  = uint(unpack_unorm_2x8(refracted_data).y * 255.0);
+	// Make sure the refracted object is behind water
+	float refracted_data  = texelFetch(colortex1, ivec2(refracted_uv * taau_render_scale * view_res), 0).y;
+	uint  refracted_mask  = uint(unpack_unorm_2x8(refracted_data).y * 255.0);
 
-		if (refracted_mask == 1) scene_color = refracted_color;
+	if (refracted_mask == 1) scene_color = refracted_color;		
 #endif
 
 #ifdef SNELLS_WINDOW
 		if (isEyeInWater == 1.0) {
 			float NoV = clamp01(dot(normal, -world_dir));
 			float water_n = isEyeInWater == 1 ? air_n / water_n : water_n / air_n;
-			scene_color *= 1.0 - min1(fresnel_dielectric_n(NoV, water_n) * SNELLS_WINDOW_INTENSITY);
+			scene_color *= 1.0 - fresnel_dielectric_n(NoV, water_n);
 		}
+#endif
+	}
+
+	if (is_tinted_glass) {
+		vec3 albedo_tint = mix(vec3(1.0), material.albedo, float(material.is_hardcoded_metal));
+
+#ifdef GLASS_REFRACTION
+	vec3 tangent_normal = normal * tbn;
+
+	vec2 refracted_uv = uv + tangent_normal.xy * tangent_normal.yz * rcp(max(view_dist, 1.0)) * min(layer_dist, sqrt(float(material.f0)));
+
+	vec3  refracted_color = texture(colortex0, refracted_uv * taau_render_scale).rgb;
+
+	scene_color = refracted_color * sqr(albedo_tint);
+#endif
+	}
+
+	if (material_mask == 62) {
+#ifdef NETHER_PORTAL_REFRACTION
+	vec3 tangent_normal = normal * tbn;
+
+	vec2 refracted_uv = uv + tangent_normal.xy * rcp(max(view_dist, 1.0));
+
+	vec3  refracted_color = texture(colortex0, refracted_uv * taau_render_scale).rgb;
+
+	scene_color = refracted_color * material.albedo;
 #endif
 	}
 
@@ -415,9 +445,8 @@ void main() {
 			material.ssr_multiplier
 		);
 
-		if (puddle) {
-			material.is_metal = false;
-			material.is_hardcoded_metal = false;
+		if (puddle && (material.is_hardcoded_metal || material.is_metal)) {
+			material.f0 *= 3.8;
 		}
 	}
 #endif
