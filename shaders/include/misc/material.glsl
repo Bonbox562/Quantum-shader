@@ -48,7 +48,7 @@ void decode_specular_map(vec4 specular_map, inout Material material) {
 	);
 
 	material.roughness = sqr(1.0 - specular_map.r);
-	material.emission = max(material.emission, material.albedo * specular_map.a * float(specular_map.a != 1.0));
+	material.emission = max(material.emission, material.albedo * specular_map.a * float(specular_map.a != 1.0)) * COLORED_LIGHTS_EMISSION;
 
 	if (specular_map.g < 229.5 / 255.0) {
 		// Dielectrics
@@ -614,7 +614,7 @@ Material material_from(vec3 albedo_srgb, uint material_mask, vec3 world_pos, vec
 					} else { // 62-64
 						if (material_mask == 62u) { // 62
 							// Nether portal
-							material.emission = vec3(10.0);
+							material.emission = vec3(1.0) * 24 * COLORED_LIGHTS_EMISSION;
 						} else {  // 63
 							// End portal
 							material.emission = vec3(12.0);
