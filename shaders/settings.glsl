@@ -307,8 +307,8 @@ const float wetnessHalflife         = 70.0;
   #define TEXTURE_FORMAT_LAB 0
   #define TEXTURE_FORMAT_OLD 1
 
-//#define NORMAL_MAPPING
-//#define SPECULAR_MAPPING
+  #define NORMAL_MAPPING
+  #define SPECULAR_MAPPING
 //#define POM
   #define HARDCODED_SPECULAR
   #define HARDCODED_EMISSION
