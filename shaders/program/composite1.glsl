@@ -375,7 +375,7 @@ void main() {
 		if (isEyeInWater == 1.0) {
 			float NoV = clamp01(dot(normal, -world_dir));
 			float water_n = isEyeInWater == 1 ? air_n / water_n : water_n / air_n;
-			scene_color *= 1.0 - fresnel_dielectric_n(NoV, water_n);
+			scene_color *= 1.0 - fresnel_dielectric_n(NoV, water_n) * SNELLS_WINDOW_INTENSITY);
 		}
 #endif
 	}
