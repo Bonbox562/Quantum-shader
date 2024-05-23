@@ -40,7 +40,7 @@ bool get_rain_puddles(
 ) {
 	const float puddle_f0                      = 0.02;
 	const float puddle_roughness               = 0.002;
-	const float puddle_darkening_factor        = 0.6;
+	const float puddle_darkening_factor        = 0.1;
 	const float puddle_darkening_factor_porous = 0.7;
 
 	if (wetness < 0.0 || biome_may_rain < 0.0) return false;
