@@ -1,4 +1,4 @@
-#ifndef INCLUDE_LIGHT_LPV_VOXELIZATION
+#if !defined INCLUDE_LIGHT_LPV_VOXELIZATION
 #define INCLUDE_LIGHT_LPV_VOXELIZATION
 
 const ivec3 voxel_volume_size = ivec3(VOXEL_VOLUME_SIZE);
@@ -23,14 +23,11 @@ bool is_voxelized(uint block_id, bool vertex_at_grid_corner) {
 	bool is_transparent_block =
 		block_id == 1u  || // Water
 	    block_id == 18u || // Transparent metal objects
-	    block_id == 27u || // Carpets
 	    block_id == 80u;   // Miscellaneous transparent
-
+	
 	bool is_light_emitting_block = 32u <= block_id && block_id < 64u;
 
-	bool is_light_tinting_block  = 64u <= block_id && block_id < 80u;
-
-	return (vertex_at_grid_corner || is_light_emitting_block || is_light_tinting_block) && is_terrain && !is_transparent_block;
+	return (vertex_at_grid_corner || is_light_emitting_block) && is_terrain && !is_transparent_block;
 }
 
 bvec3 disjunction(bvec3 a, bvec3 b) {
@@ -57,7 +54,7 @@ void update_voxel_map(uint block_id) {
 	vec3 block_pos = transform(gl_ModelViewMatrix, gl_Vertex.xyz);
 	     block_pos = transform(shadowModelViewInverse, block_pos);
 		 block_pos = fract(block_pos + cameraPosition);
-	bool vertex_at_grid_corner = true;
+	bool vertex_at_grid_corner = is_corner(block_pos, rcp(16.0) - 1e-3);
 
 	bool is_voxelized = is_voxelized(block_id, vertex_at_grid_corner);
 
@@ -67,8 +64,8 @@ void update_voxel_map(uint block_id) {
 	// Warped and crimson stem emission
 	uint is_warped_stem  = uint(19 <= block_id && block_id < 23);
 	uint is_crimson_stem = uint(23 <= block_id && block_id < 27);
-	block_id = block_id * (1u - is_warped_stem) + 60 * is_warped_stem;
-	block_id = block_id * (1u - is_crimson_stem) + 59 * is_crimson_stem;
+	block_id = block_id * (1u - is_warped_stem) + 46 * is_warped_stem;
+	block_id = block_id * (1u - is_crimson_stem) + 58 * is_crimson_stem;
 
 	// SSS blocks
 	if (block_id == 5u  || // Leaves
