@@ -497,8 +497,8 @@ Material material_from(vec3 albedo_srgb, uint material_mask, vec3 world_pos, vec
 						} else { // 43
 							#ifdef HARDCODED_EMISSION
 							// Soul lights
-							float blue = isolate_hue(hsl, 200.0, 30.0);
-							material.emission = 1.0 * albedo_sqrt * linear_step(0.8, 1.0, blue + hsl.z);
+							float blue = isolate_hue(hsl, 200.0, 50.0);
+                            material.emission = 0.66 * albedo_sqrt * linear_step(0.97, 1.0, blue + hsl.z); 
 							#endif
 						}
 					}
@@ -574,7 +574,7 @@ Material material_from(vec3 albedo_srgb, uint material_mask, vec3 world_pos, vec
 						} else { // 55
 							#ifdef HARDCODED_EMISSION
 							// Amethyst cluster
-							material.emission = vec3(0.20) * (0.1 + 0.9 * hsl.z);
+							material.emission = vec3(0.2) * 1.8 * albedo_srgb * sin((0.1 + 0.9 * hsl.z)) * albedo_sqrt;
 							#endif
 						}
 					}
